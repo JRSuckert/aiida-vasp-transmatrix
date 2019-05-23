@@ -1,0 +1,56 @@
+{
+    "name": "aiida-vasp-transmatrix",
+    "author": "Jens Rene Suckert",
+    "author_email": "jensrene.suckert@uni-jena.de",
+    "description": "Calculation/Parser plugin postprocessing outputs obtained from VASP 5.3.3 CR_MOD",
+    "url": "https://github.com/JRSuckert/aiida-vasp-transmatrix",
+    "license": "MIT",
+    "classifiers": [
+        "Programming Language :: Python",
+        "Intended Audience :: Science/Research",
+        "License :: OSI Approved :: MIT License",
+        "Natural Language :: English",
+        "Framework :: AiiDA"
+    ],
+    "version": "0.1.0a0",
+    "entry_points": {
+        "aiida.data": [
+            "transmatrix = aiida_vasp_transmatrix.data:DiffParameters"
+        ],
+        "aiida.calculations": [
+            "transmatrix = aiida_vasp_transmatrix.calculations:DiffCalculation"
+        ],
+        "aiida.parsers": [
+            "transmatrix = aiida_vasp_transmatrix.parsers:DiffParser"
+        ],
+        "aiida.cmdline.data": [
+            "transmatrix = aiida_vasp_transmatrix.cli:data_cli"
+        ]
+    },
+    "include_package_data": true,
+    "setup_requires": ["reentry"],
+    "reentry_register": true,
+    "install_requires": [
+        "aiida-core>=1.0.0b3,<2.0.0",
+        "six",
+        "voluptuous"
+    ],
+    "extras_require": {
+        "testing": [
+            "pgtest==1.2.0",
+            "wheel>=0.31",
+            "coverage",
+            "pytest>=3.6.3,<5.0.0",
+            "pytest-cov>=2.6.1,<5.0.0"
+        ],
+        "pre-commit": [
+            "pre-commit==1.11.0",
+            "yapf==0.27.0",
+            "prospector==0.12.11",
+            "pylint==1.9.4"
+        ],
+        "docs": [
+            "sphinx"
+        ]
+    }
+}
